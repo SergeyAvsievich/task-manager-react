@@ -1,0 +1,13 @@
+import React from 'react'
+import './Loader.css'
+
+const Loader = props =>  {
+    return (
+        <div className="center">
+            <div className="loader"/>
+        </div>
+        
+    )
+}
+
+export default Loader

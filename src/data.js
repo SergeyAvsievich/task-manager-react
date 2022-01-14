@@ -1,0 +1,1 @@
+console.log('Date: ', new Date(new Date().getTime()))

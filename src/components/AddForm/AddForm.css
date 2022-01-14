@@ -1,0 +1,65 @@
+.todo-add {
+  display: flex;
+  justify-content: center;
+}
+
+.todo-input {
+  width: 439px;
+  height: 25px;
+  border: none;
+  border-bottom: 1px solid #fff;
+  border-radius: 0;
+  outline: none;
+  height: 3rem;
+  background: transparent;
+  color: #bbb;
+  padding-left: 30px;
+  font-size: 20px;
+  margin-left: 6px;
+}
+
+.fa-comment-dots {
+  margin-right: -25px;
+  color: #ccc;
+  font-size: 20px;
+}
+
+.add-btn {
+  display: inline-block;
+  padding: 10px 10px;
+  border-radius: 0px 4px 4px 0px;
+  border: 1px solid #ccc;
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 15px;
+  /* background: rgba(161, 240, 69, 1); */
+  /* background: rgba(255, 255, 255, 0.2); */
+  /* background: #1de9b6; */
+  background: linear-gradient(
+    166deg,
+    rgba(253, 160, 133, 1),
+    rgba(246, 211, 101, 1)
+  );
+  /* background: rgba(253, 160, 133, 1); */
+  cursor: pointer;
+  height: 48px;
+}
+
+.add-btn:focus {
+  outline: none;
+}
+
+.add-btn:active {
+  box-shadow: inset 2px 2px 1px rgba(0, 0, 0, 0.3);
+}
+
+.add-btn:disabled {
+  background: #ccc;
+  color: #000;
+  cursor: not-allowed;
+}
+
+.add-btn i {
+  margin-right: 5px;
+}

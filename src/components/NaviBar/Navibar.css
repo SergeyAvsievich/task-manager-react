@@ -1,0 +1,136 @@
+.nav {
+  padding: 10px 10px;
+  display: flex;
+  justify-content: space-between;
+  background: linear-gradient(90deg, #1ca633 0%, #16e3a6 100%);
+  /* background: linear-gradient(
+    90deg,
+    rgba(102, 166, 255, 1) 5%,
+    rgba(137, 247, 254, 1)
+  ); */
+  /* background: linear-gradient(
+    90deg,
+    rgba(106, 17, 203, 1),
+    rgba(37, 117, 252, 1)
+  ); */
+  /* background: linear-gradient(
+    90deg,
+    rgba(240, 147, 251, 1),
+    rgba(245, 87, 108, 1)
+  ); */
+  /* background: linear-gradient(
+    90deg,
+    rgba(240, 147, 251, 1),
+    rgba(245, 87, 108, 1)
+  ); */
+  /* background: linear-gradient(
+    90deg,
+    rgba(196, 113, 245, 1),
+    rgba(250, 113, 205, 1)
+  ); */
+  /* background: linear-gradient(
+    90deg,
+    rgba(250, 112, 154, 1),
+    rgba(254, 225, 64, 1)
+  ); */
+  /* background: linear-gradient(
+    90deg,
+    rgba(246, 211, 101, 1),
+    rgba(253, 160, 133, 1)
+  ); */
+  color: #fff;
+  align-items: center;
+}
+
+.nav-menu {
+  display: flex;
+  list-style: none;
+  padding: 0;
+}
+
+.nav-item {
+  margin: 0 5px;
+  padding: 10px 10px;
+  border-radius: 5px;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.nav-item:hover {
+  background: rgba(255, 255, 255, 0.4);
+  cursor: pointer;
+  box-shadow: rgba(255, 255, 255, 0.1) 1px 2px 1px 1px;
+}
+
+.nav-item i {
+  padding-right: 3px;
+}
+
+.search {
+  width: 200px;
+  height: 32px;
+  background: #fff;
+  border-radius: 5px;
+  border: none;
+  color: #777;
+  padding: 0 25px;
+}
+
+.search:focus {
+  outline: none;
+}
+
+.nav strong {
+  line-height: 32px;
+  text-align: center;
+  font-size: 18px;
+}
+
+.nav strong i {
+  margin-right: 5px;
+}
+
+.profile {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.fa-search {
+  color: #888;
+  margin-right: -22px;
+  z-index: 45;
+}
+
+.user {
+  margin: 0 15px;
+  position: relative;
+  z-index: 100;
+}
+
+.fa-user {
+  margin-right: 5px;
+}
+.fa-caret-down {
+  margin-left: 5px;
+}
+
+.btn-exit {
+  display: inline-block;
+  padding: 10px 10px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 15px;
+  /* background: rgba(161, 240, 69, 1); */
+  /* background: rgba(255, 255, 255, 0.2); */
+  /* background: #1de9b6; */
+  background: linear-gradient(
+    166deg,
+    rgba(253, 160, 133, 1),
+    rgba(246, 211, 101, 1)
+  );
+  cursor: pointer;
+  height: 38px;
+}

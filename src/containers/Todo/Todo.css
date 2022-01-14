@@ -1,0 +1,43 @@
+.todo-wrapper {
+  display: flex;
+  justify-content: center;
+  padding-top: 100px;
+  flex-grow: 1;
+  width: 100%;
+  background: linear-gradient(90deg, #1ca633 0%, #16e3a6 100%);
+  /* background: linear-gradient(
+    90deg,
+    rgba(102, 166, 255, 1) 5%,
+    rgba(137, 247, 254, 1)
+  ); */
+  /* background: linear-gradient(
+    90deg,
+    rgba(106, 17, 203, 1),
+    rgba(37, 117, 252, 1)
+  ); */
+  /* background: linear-gradient(
+    90deg,
+    rgba(240, 147, 251, 1),
+    rgba(245, 87, 108, 1)
+  ); */
+  /* background: linear-gradient(
+    90deg,
+    rgba(196, 113, 245, 1),
+    rgba(250, 113, 205, 1)
+  /* );*/
+  /* background: linear-gradient(
+    90deg,
+    rgba(250, 112, 154, 1),
+    rgba(254, 225, 64, 1)
+  ); */
+  /* background: linear-gradient(
+    90deg,
+    rgba(246, 211, 101, 1),
+    rgba(253, 160, 133, 1)
+  ); */
+}
+
+.todo-wrapper h1 {
+  text-align: center;
+  color: #fff;
+}

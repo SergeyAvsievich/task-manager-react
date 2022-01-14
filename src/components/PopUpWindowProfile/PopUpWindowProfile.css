@@ -1,0 +1,52 @@
+.pop-up {
+  width: 273px;
+  transform: translateY(-332px);
+  position: absolute;
+  background: #fff;
+  color: #444;
+  padding: 10px;
+  border-radius: 4px;
+  text-align: left;
+  transition: all 0.4s ease-in;
+  z-index: 1;
+}
+
+.pop-up.open {
+  /* z-index: 1; */
+}
+
+.title {
+  display: flex;
+  justify-content: space-between;
+}
+
+.title .btn-close {
+  line-height: 20px;
+  font-size: 25px;
+  cursor: pointer;
+}
+
+.pop-up h5 {
+  margin: auto 5px 0 auto;
+}
+
+.pop-up i {
+  width: 100%;
+  text-align: center;
+  margin-top: 10px;
+  font-size: 100px;
+  cursor: pointer;
+}
+
+.pop-up .btn {
+  cursor: pointer;
+}
+
+.pop-up ul {
+  list-style: none;
+  padding: 0;
+}
+
+.pop-up li {
+  cursor: pointer;
+}
