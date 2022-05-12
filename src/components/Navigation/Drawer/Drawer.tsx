@@ -4,9 +4,14 @@ import { Backdrop } from '../../UI/Backdrop/Backdrop'
 import { NavLink } from 'react-router-dom'
 import ChangeTheme from '../../ChangeTheme/ChangeTheme'
 
-export const Drawer = props => {
+interface IPropsDrawer {
+    onClose: () => void,
+    isOpen: Boolean
+}
 
-    const [menu, setMenu] = useState(false)
+export const Drawer: React.FC<IPropsDrawer> = ({onClose, isOpen}) => {
+
+    const [menu, setMenu] = useState<Boolean>(false)
 
     const menuCloseHandler = () => {
         setMenu(false)
@@ -21,12 +26,12 @@ export const Drawer = props => {
     ]
 
     const cls = [classes.Drawer]
-    if(!props.isOpen){
+    if(!isOpen){
         cls.push(classes.close)
     }
 
     const clickHandler = () => {
-        props.onClose()
+        onClose()
     }
 
     return (
@@ -43,7 +48,7 @@ export const Drawer = props => {
                         )
                     })}
                 </ul>
-                {menu ? <ChangeTheme onClose={props.onClose} /> : null}
+                {menu ? <ChangeTheme onClose={onClose} /> : null}
             </div>
             {/* { props.isOpen ? <Backdrop onClick={props.onClose}/> : null} */}
         </>            

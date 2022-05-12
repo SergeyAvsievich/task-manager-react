@@ -1,13 +1,18 @@
 import React from 'react'
 import classes from './MenuToggle.module.css'
 
-export const MenuToggle = props => {
+type PropsMenuToggle = {
+    isOpen: Boolean,
+    onToggle: () => void
+}
+
+export const MenuToggle: React.FC<PropsMenuToggle> = ({isOpen, onToggle}) => {
     const cls = [
         classes.MenuToggle,
         'fa'
     ]
 
-    if(props.isOpen){
+    if(isOpen){
         cls.push('fa-bars')
         cls.push(classes.open)
     }else{
@@ -17,7 +22,7 @@ export const MenuToggle = props => {
     return (
         <i 
             className={cls.join(' ')}
-            onClick={props.onToggle}
+            onClick={onToggle}
         > 
         </i>
     )

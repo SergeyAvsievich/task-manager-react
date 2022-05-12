@@ -1,7 +1,11 @@
 import React from 'react'
 import classes from './ChangeTheme.module.css'
 
-const ChangeTheme = (props) => {
+interface IPropsChngeTheme {
+    onClose: () => void
+} 
+
+const ChangeTheme: React.FC<IPropsChngeTheme> = ({onClose}) => {
 
     // const cls = [classes.ChangeTheme]
     // if(!props.isOpen){
@@ -15,7 +19,7 @@ const ChangeTheme = (props) => {
     return (
         <>
             <div className={classes.ChangeTheme}>
-                <button onClick={props.onClose}>Назад</button>
+                <button onClick={onClose}>Назад</button>
                 <span>Change Theme</span>
             </div>
         </>            

@@ -1,17 +1,16 @@
 import React, { useState } from 'react'
 import './AddForm.css'
-import { useDispatch } from 'react-redux'
-import { createTodo } from '../../redux/actions/todos'
+import { useActions } from '../../hooks/useAction'
 
-export const AddForm = () => {
+export const AddForm: React.FC = () => {
 
-    const dispatch = useDispatch()
+    const {createTodo} = useActions()
 
     const [value, setValue] = useState('')
 
-    const clickHandler = value => {
+    const clickHandler = (value: string) => {
         if(!value.trim()) return
-        dispatch(createTodo(value))
+        createTodo(value)
         setValue('')
     }
 

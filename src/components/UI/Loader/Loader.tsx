@@ -1,7 +1,6 @@
-import React from 'react'
 import './Loader.css'
 
-const Loader = props =>  {
+const Loader: React.FC = () =>  {
     return (
         <div className="center">
             <div className="loader"/>

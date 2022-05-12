@@ -19,20 +19,26 @@ import classes from './TodoItem.module.css'
 
 */
 
-export const TodoItem = props => {
+interface ITodos {
+    id: number,
+    text: string,
+    completed: boolean
+}
+
+export const TodoItem: React.FC<ITodos> = (props) => {
 
     const dispatch = useDispatch()
 
-    const deleteHandler = id => {
+    const deleteHandler = (id: number) => {
         dispatch(deleteTodo(id))
     }
 
     const cls = [
         classes.TodoItem,
-        props.complited ? classes.complited : null
+        props.completed ? classes.completed : null
     ]
 
-    const changeHandler = id => {
+    const changeHandler = (id: number) => {
         dispatch(updateTodo(id))
     }
 
@@ -41,11 +47,17 @@ export const TodoItem = props => {
             <span>
                 <input
                     type="checkbox"
-                    checked={props.complited}
-                    onChange={() => changeHandler(props.id)} />
+                    checked={props.completed}
+                    onChange={() => changeHandler(props.id)} 
+                />        
                 {props.text}
             </span>
-            <button className={classes.close} onClick={() => deleteHandler(props.id)}>&#10006;</button>
+            <button 
+                className={classes.close}
+                onClick={() => deleteHandler(props.id)}
+            >
+                &#10006;
+            </button>
         </li>
     )
 }

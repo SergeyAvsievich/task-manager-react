@@ -3,9 +3,13 @@ import classes from './Layout.module.css'
 import {Drawer} from '../../components/Navigation/Drawer/Drawer'
 import {MenuToggle} from '../../components/Navigation/MenuToggle/MenuToggle'
 
-const Layout = props => {
+interface ILayoautProps {
+    children?: React.ReactNode
+}
 
-    const [menu, setMenu] = useState(false)
+const Layout: React.FC<ILayoautProps> = ({children}) => {
+
+    const [menu, setMenu] = useState<Boolean>(false)
 
     const menuCloseHandler = () => {
         setMenu(false)
@@ -29,7 +33,7 @@ const Layout = props => {
             />
 
             <main>
-                {props.children}
+                {children}
             </main>
         </div>
     )

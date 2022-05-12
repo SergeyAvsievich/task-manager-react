@@ -1,11 +1,11 @@
 import React from 'react'
-import { useSelector} from 'react-redux'
+import { useTypedSelector } from '../../hooks/useTypedSelector'
 import { TodoItem } from './TodoItem/TodoItem'
 import classes from './TodoList.module.css'
 
-export const TodoList = () => {
+export const TodoList: React.FC = () => {
 
-    const todos = useSelector(state => state.todos.todos)
+    const todos = useTypedSelector(state => state.todos.todos)
     return (
         <ul className={classes.TodoList}>
             {todos.map((todo, index) => {
@@ -14,7 +14,7 @@ export const TodoList = () => {
                         key={index}
                         id={todo.id}
                         text={todo.text}
-                        complited={todo.complited}
+                        completed={todo.completed}
                     />
                 )
             })}
