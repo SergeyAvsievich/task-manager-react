@@ -1,6 +1,6 @@
-import { api } from "../../api/api"
+import {api} from "../../api/api"
 
-export function auth(email, password, isLogin){
+export function auth (email, password, isLogin){
     return dispatch => api.auth(email, password, isLogin)
         .then(data => {
             dispatch({

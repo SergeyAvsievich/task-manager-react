@@ -1,19 +1,18 @@
 import React, {useEffect} from 'react'
 import './Todo.css'
-import { useDispatch, useSelector } from 'react-redux'
-import { TodoList } from '../../components/TodoList/TodoList'
+import {TodoList} from '../../components/TodoList/TodoList'
 import {AddForm} from '../../components/AddForm/AddForm'
-import { getTodos } from '../../redux/actions/todos'
 import Loader from '../../components/UI/Loader/Loader'
+import {useTypedSelector} from '../../hooks/useTypedSelector'
+import {useActions} from '../../hooks/useAction'
 
-const Todo = () => {
+const Todo: React.FC = () => {
 
-    const dispatch = useDispatch()
-    const loading = useSelector(state => state.todos.loading)
+    const {getTodos} = useActions()
+    const loading = useTypedSelector(state => state.todos.loading)
     
     useEffect(() => {
-        dispatch(getTodos())
-        console.log("loading")
+        getTodos()
     }, [])
 
     return (
@@ -24,7 +23,7 @@ const Todo = () => {
                 {/* <Loader/> */}
                 {loading 
                     ? <Loader/> 
-                    : <><AddForm /><TodoList/></>
+                    : <><AddForm /><TodoList /></>
                 }
             </div>
         </div>

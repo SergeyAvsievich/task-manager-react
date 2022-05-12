@@ -1,0 +1,13 @@
+.Toggle {
+    padding: 10px 10px;
+    height: 84.7vh;
+    display: flex;
+    justify-content: space-between;
+    /* background: linear-gradient(90deg, #1ca633 0%, #16e3a6 100%); */
+    /* background: linear-gradient(
+        90deg,
+        rgba(102, 166, 255, 1) 5%,
+        rgba(137, 247, 254, 1)
+    ); */
+    background-color: rgb(75, 191, 107);
+}
