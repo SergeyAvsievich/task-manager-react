@@ -1,4 +1,5 @@
 .auth {
+  color: #9a9a9a;
   display: flex;
   justify-content: center;
   padding-top: 100px;
@@ -31,18 +32,4 @@
   height: 20px;
   /* border-radius: 5px; */
   margin: 10px 0 5px 0;
-}
-
-.auth button {
-  background: rgba(32, 248, 12, 0.7);
-  margin: 10px 10px 10px 0px;
-  border-radius: 5px;
-  padding: 10px;
-  cursor: pointer;
-  border: 1px solid rgb(32, 248, 12);
-  box-shadow: 1px 1px 3px 1px rgb(211, 243, 209);
-}
-
-.auth button:hover {
-  background: rgba(32, 248, 12, 0.5);
 }

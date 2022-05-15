@@ -56,52 +56,9 @@ const updateTodo = async (todoId: number) => {
     }
 }
 
-// auth
-const auth = async (email: string, password: string, isLogin: boolean) => {
-
-    const authData = {
-        email,
-        password,
-        returnSecureToken: true
-    }
-
-    const apiKey = 'AIzaSyCc9-bu9XR0jdCK9jTL9c-aRbQOZugXhy8'
-
-    let url = `https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=${apiKey}` 
-    
-    if(isLogin){
-        url = `https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${apiKey}`
-    }
-
-    interface IData {
-        expiresIn: number,
-        idToken: string,
-        localId: string
-    }
-
-    interface IUser{
-        email: string,
-        password: string,
-        returnSecureToken: boolean
-        data: IData
-    }
-
-    const response: IUser = await axios.post(url, authData)
-    const data: IData = response.data
-
-    const expirationDate: string = new Date(new Date().getTime() + data.expiresIn * 10).toString()
-
-    localStorage.setItem('token', data.idToken)
-    localStorage.setItem('userId', data.localId)
-    localStorage.setItem('expirationDate', expirationDate)
-   
-    return data
-}
-
 export const api = {
     createTodo,
     getTodos,
     deleteTodo,
-    updateTodo,
-    auth
+    updateTodo
 }

@@ -17,9 +17,9 @@ function App() {
         <Navibar />
         <Switch>
           {/* <Route path="/change-theme" exact component={ChangeTheme}/> */}
-          <Route path="/" exact component={Todo}/>
+          <Route path="/" exact component={Auth}/>
           <Route path="/toggle" exact component={Toggle}/>
-          <Route path="/auth" exact component={Auth}/>
+          <Route path="/todos" exact component={Todo}/>
           <Redirect to="/"/>
         </Switch>
       </Layout>
