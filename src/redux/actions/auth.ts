@@ -1,5 +1,6 @@
 import axios from 'axios'
 import { Dispatch } from 'react'
+import { getTodos } from '../../firebase/firebase'
 import { AuthActionTypes, AuthState } from '../types/auth'
 
 interface IAuthData {
@@ -15,6 +16,8 @@ export function auth (email: string, password: string, isLogin: boolean) {
             password,
             returnSecureToken: true
         }
+
+        // console.log(getTodos())
     
         const apiKey: string = 'AIzaSyCc9-bu9XR0jdCK9jTL9c-aRbQOZugXhy8'
         let url: string = `https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=${apiKey}`
