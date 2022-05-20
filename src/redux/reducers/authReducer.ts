@@ -7,6 +7,7 @@ export const initialState: AuthState = {
 export function authReducer(state = initialState, action: AuthAction): AuthState {
     switch(action.type){
         case AuthActionTypes.AUTH_SUCCESS:
+            // console.log('reducer: ', action.token)
             return {
                 ...state,
                 token: action.token

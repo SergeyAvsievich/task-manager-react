@@ -1,7 +1,7 @@
 import './App.css';
 import Layout from './hoc/Layout/Layout';
 import Todo from './containers/Todo/Todo'
-import { Route, Switch, Redirect, BrowserRouter } from 'react-router-dom';
+import { Route, Routes, BrowserRouter } from 'react-router-dom';
 import Auth from './containers/Auth/Auth'
 import Navibar from './components/NaviBar/Navibar'
 import Toggle from './containers/Toggle/Toggle';
@@ -12,26 +12,25 @@ import { useTypedSelector } from './hooks/useTypedSelector';
 
 function App() {
 
-  const isLogin = useTypedSelector(state => state.auth.token)
+  const userId = useTypedSelector(state => state.auth.token)
 
   let routes = (
     <>
-      <Switch>
-        <Route path="/auth" exact component={Auth}/>
-        <Redirect to="/auth"/>
-      </Switch>
+      <Routes>
+        <Route path="/auth" element={<Auth/>}/>
+        <Route path="/*" element={<Auth/>}/>
+      </Routes>
     </>
   )
 
-  if (isLogin) {
+  if (userId) {
     routes = (
       <>
         <Navibar />
-        <Switch>
-          <Route path="/" exact component={Todo}/>
-          <Route path="/toggle" exact component={Toggle}/>
-          <Redirect to="/"/>
-        </Switch>
+        <Routes>
+          <Route path="/todos" element={<Todo/>}/>
+          <Route path="/toggle" element={<Toggle/>}/>
+        </Routes>
       </>
     ) 
   } 

@@ -1,6 +1,5 @@
 import axios from 'axios'
 import { Dispatch } from 'react'
-import { getTodos } from '../../firebase/firebase'
 import { AuthActionTypes, AuthState } from '../types/auth'
 
 interface IAuthData {
@@ -49,8 +48,8 @@ export function auth (email: string, password: string, isLogin: boolean) {
         localStorage.setItem('token', data.idToken)
         localStorage.setItem('userId', data.localId)
         localStorage.setItem('expirationDate', expirationDate)
-        
-        dispatch(authSuccess(data.idToken))
+        // console.log('idToken: ', data.idToken)
+        dispatch(authSuccess(data.localId))
         autoLogout(data.expiresIn)
     }
 }
@@ -76,6 +75,7 @@ export function logout() {
 }
 
 export function authSuccess(token: string) {
+    console.log('token: ', token)
     return {
         type: AuthActionTypes.AUTH_SUCCESS,
         token

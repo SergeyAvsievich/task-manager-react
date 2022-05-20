@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import './Auth.css'
 import {useActions} from '../../hooks/useAction'
-import { useHistory } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import Button from '../../components/UI/Button/Button'
 import Input from '../../components/UI/Input/Input'
 
@@ -11,11 +11,11 @@ const Auth: React.FC = () => {
     const [password, setPassword] = useState<string>('')
     const {auth} = useActions()
     
-    const history = useHistory()
+    const navigate = useNavigate()
 
     const loginHandler = async () => {
         auth(email, password, true)
-        history.push("/todos");
+        navigate(`/todos`);
     }
 
     const registerHandler = async () => {

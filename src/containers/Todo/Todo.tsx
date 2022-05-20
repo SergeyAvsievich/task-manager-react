@@ -10,9 +10,13 @@ const Todo: React.FC = () => {
 
     const {getTodos} = useActions()
     const loading = useTypedSelector(state => state.todos.loading)
+    const userId = useTypedSelector(state => state.auth.token)
+    console.log('todos userId: ', userId)
     
     useEffect(() => {
-        getTodos()
+        if (typeof userId === 'string') {
+            getTodos(userId)
+        }
     }, [])
 
     return (

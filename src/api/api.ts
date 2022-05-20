@@ -2,23 +2,26 @@ import axios from "../axios/axios-todos"
 import {ITodo} from "../interfaces"
 
 //todos
-const getTodos = async () => {
+const getTodos = async (userId: string) => {
     try {
         const response = await axios.get<ITodo>('/todos.json')
-        console.log('todos: ', response.data)
-        const items: ITodo[] = Object.values(response.data).map(todo => todo)
+        console.log('todos api: ', response)
+
+        const items: ITodo[] = Object.values(response.data)
+            .filter(todo => todo.userId === userId)
         return items
     }catch(err){
         throw new Error('Произошла ошибка при загрузке списка задач...')
     }
 }
 
-const createTodo = async (data: string) => {
+const createTodo = async (data: string, userId: string) => {
     try {
         const todo = {
             id: Date.now(),
             completed: false, 
-            text: data
+            text: data,
+            userId
         }
     
         await axios.post('/todos.json', todo)

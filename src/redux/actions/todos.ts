@@ -2,9 +2,9 @@ import {Dispatch} from 'react'
 import {api} from '../../api/api'
 import {TodosAction, TodosActionTypes} from '../types/todos'
 
-export function getTodos() {
+export function getTodos(userId: string) {
     return (dispatch: Dispatch<TodosAction>) => {
-        api.getTodos()
+        api.getTodos(userId)
         .then(todos => dispatch({
             type: TodosActionTypes.GET_TODOS,
             todos
@@ -12,8 +12,8 @@ export function getTodos() {
     }
 }
 
-export function createTodo(value: string) {
-    return (dispatch: Dispatch<TodosAction>) => api.createTodo(value)
+export function createTodo(value: string, userId: string) {
+    return (dispatch: Dispatch<TodosAction>) => api.createTodo(value, userId)
         .then(todo => dispatch({
             type: TodosActionTypes.CREATE_TODO,
             todo

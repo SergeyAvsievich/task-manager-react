@@ -1,17 +1,17 @@
 import React from 'react'
-import { NavLink, useHistory } from 'react-router-dom'
+import { NavLink, useNavigate } from 'react-router-dom'
 import { useActions } from '../../hooks/useAction'
-import PopUpWindowProfile from '../PopUpWindowProfile/PopUpWindowProfile'
+// import PopUpWindowProfile from '../PopUpWindowProfile/PopUpWindowProfile'
 import './Navibar.css'
 
 const Navibar: React.FC = () => {
 
     const {logout} = useActions()
-    const history = useHistory()
+    const navigate = useNavigate()
 
     const exitHandler = () => {
         logout()
-        history.push("/auth");
+        navigate("/auth");
     }
 
     return (
