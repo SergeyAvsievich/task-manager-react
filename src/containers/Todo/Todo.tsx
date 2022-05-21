@@ -5,6 +5,7 @@ import {AddForm} from '../../components/AddForm/AddForm'
 import Loader from '../../components/UI/Loader/Loader'
 import {useTypedSelector} from '../../hooks/useTypedSelector'
 import {useActions} from '../../hooks/useAction'
+import {useNavigate} from 'react-router-dom'
 
 const Todo: React.FC = () => {
 
@@ -12,6 +13,7 @@ const Todo: React.FC = () => {
     const loading = useTypedSelector(state => state.todos.loading)
     const userId = useTypedSelector(state => state.auth.token)
     console.log('todos userId: ', userId)
+    const navigate = useNavigate()
     
     useEffect(() => {
         if (typeof userId === 'string') {

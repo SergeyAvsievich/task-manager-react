@@ -4,18 +4,22 @@ import {useActions} from '../../hooks/useAction'
 import { useNavigate } from 'react-router-dom'
 import Button from '../../components/UI/Button/Button'
 import Input from '../../components/UI/Input/Input'
+import { useTypedSelector } from '../../hooks/useTypedSelector'
 
 const Auth: React.FC = () => {
-
+    
     const [email, setEmail] = useState<string>('')
     const [password, setPassword] = useState<string>('')
     const {auth} = useActions()
-    
-    const navigate = useNavigate()
+    const userId = useTypedSelector(state => state.auth.token)
+    // const navigate = useNavigate()
 
     const loginHandler = async () => {
         auth(email, password, true)
-        navigate(`/todos`);
+        setTimeout(() => {
+            console.log('userId: ', userId)
+        }, 500)
+        // navigate(`/todos`)
     }
 
     const registerHandler = async () => {

@@ -11,7 +11,7 @@ const Navibar: React.FC = () => {
 
     const exitHandler = () => {
         logout()
-        navigate("/auth");
+        navigate("/");
     }
 
     return (
