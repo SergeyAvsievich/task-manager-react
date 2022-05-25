@@ -17,12 +17,17 @@ const Input: React.FC<PropsInput> = (props) => {
   return (
     <div className={cls.join(' ')}>
       <label htmlFor={htmlFor}>{props.label}</label>
+      <div>
+        <div>
+          <i className="fas fa-user"></i>
+        </div>
         <input
           id={htmlFor} 
           type={props.type}
           value={props.value}
           onChange={props.onChange}
         />
+      </div>
 
         <span>{props.errorMessage}</span>
     </div>
