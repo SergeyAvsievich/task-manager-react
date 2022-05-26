@@ -1,9 +1,18 @@
 import React from 'react'
-import { NavLink } from 'react-router-dom'
-import PopUpWindowProfile from '../PopUpWindowProfile/PopUpWindowProfile'
+import { NavLink, useNavigate } from 'react-router-dom'
+import { useActions } from '../../hooks/useAction'
+// import PopUpWindowProfile from '../PopUpWindowProfile/PopUpWindowProfile'
 import './Navibar.css'
 
 const Navibar: React.FC = () => {
+
+    const {logout} = useActions()
+    const navigate = useNavigate()
+
+    const exitHandler = () => {
+        logout()
+        navigate("/");
+    }
 
     return (
         <nav className="nav">
@@ -27,9 +36,12 @@ const Navibar: React.FC = () => {
                         </i>Сергей Владимирович
                         <i className="fas fa-caret-down"></i>
                     </strong>
-                    <PopUpWindowProfile/>
+                    {/* <PopUpWindowProfile/> */}
                 </div>
-                <button className="btn-exit">Выйти</button>
+                <button
+                    className="btn-exit"
+                    onClick={exitHandler}
+                >Выйти</button>
             </div>
         </nav>
     )

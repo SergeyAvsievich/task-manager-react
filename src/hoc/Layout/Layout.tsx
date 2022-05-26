@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import classes from './Layout.module.css'
-import {Drawer} from '../../components/Navigation/Drawer/Drawer'
-import {MenuToggle} from '../../components/Navigation/MenuToggle/MenuToggle'
+// import {Drawer} from '../../components/Navigation/Drawer/Drawer'
+// import {MenuToggle} from '../../components/Navigation/MenuToggle/MenuToggle'
 
 interface ILayoautProps {
     children?: React.ReactNode
@@ -9,20 +9,20 @@ interface ILayoautProps {
 
 const Layout: React.FC<ILayoautProps> = ({children}) => {
 
-    const [menu, setMenu] = useState<Boolean>(false)
+    // const [menu, setMenu] = useState<Boolean>(false)
 
-    const menuCloseHandler = () => {
-        setMenu(false)
-    }
+    // const menuCloseHandler = () => {
+    //     setMenu(false)
+    // }
 
-    const toggleMenuHandler = () => {
-        setMenu(!menu)
-    }
+    // const toggleMenuHandler = () => {
+    //     setMenu(!menu)
+    // }
 
     return(
         <div className={classes.Layout}>
 
-            <Drawer
+            {/* <Drawer
                 isOpen={menu}
                 onClose={menuCloseHandler}
             />
@@ -30,7 +30,7 @@ const Layout: React.FC<ILayoautProps> = ({children}) => {
             <MenuToggle
                 onToggle={toggleMenuHandler}
                 isOpen={menu}
-            />
+            /> */}
 
             <main>
                 {children}

@@ -2,23 +2,26 @@ import axios from "../axios/axios-todos"
 import {ITodo} from "../interfaces"
 
 //todos
-const getTodos = async () => {
+const getTodos = async (userId: string) => {
     try {
         const response = await axios.get<ITodo>('/todos.json')
-        console.log('todos: ', response.data)
-        const items: ITodo[] = Object.values(response.data).map(todo => todo)
+        console.log('todos api: ', response)
+
+        const items: ITodo[] = Object.values(response.data)
+            .filter(todo => todo.userId === userId)
         return items
     }catch(err){
         throw new Error('Произошла ошибка при загрузке списка задач...')
     }
 }
 
-const createTodo = async (data: string) => {
+const createTodo = async (data: string, userId: string) => {
     try {
         const todo = {
             id: Date.now(),
             completed: false, 
-            text: data
+            text: data,
+            userId
         }
     
         await axios.post('/todos.json', todo)
@@ -56,52 +59,9 @@ const updateTodo = async (todoId: number) => {
     }
 }
 
-// auth
-const auth = async (email: string, password: string, isLogin: boolean) => {
-
-    const authData = {
-        email,
-        password,
-        returnSecureToken: true
-    }
-
-    const apiKey = 'AIzaSyCc9-bu9XR0jdCK9jTL9c-aRbQOZugXhy8'
-
-    let url = `https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=${apiKey}` 
-    
-    if(isLogin){
-        url = `https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${apiKey}`
-    }
-
-    interface IData {
-        expiresIn: number,
-        idToken: string,
-        localId: string
-    }
-
-    interface IUser{
-        email: string,
-        password: string,
-        returnSecureToken: boolean
-        data: IData
-    }
-
-    const response: IUser = await axios.post(url, authData)
-    const data: IData = response.data
-
-    const expirationDate: string = new Date(new Date().getTime() + data.expiresIn * 10).toString()
-
-    localStorage.setItem('token', data.idToken)
-    localStorage.setItem('userId', data.localId)
-    localStorage.setItem('expirationDate', expirationDate)
-   
-    return data
-}
-
 export const api = {
     createTodo,
     getTodos,
     deleteTodo,
-    updateTodo,
-    auth
+    updateTodo
 }

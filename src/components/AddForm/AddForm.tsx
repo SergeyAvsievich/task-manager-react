@@ -1,16 +1,19 @@
 import React, { useState } from 'react'
 import './AddForm.css'
 import { useActions } from '../../hooks/useAction'
+import { useTypedSelector } from '../../hooks/useTypedSelector'
 
 export const AddForm: React.FC = () => {
-
     const {createTodo} = useActions()
+    const userId = useTypedSelector(state => state.auth.token)
 
     const [value, setValue] = useState('')
 
     const clickHandler = (value: string) => {
         if(!value.trim()) return
-        createTodo(value)
+        if (typeof userId === 'string') {
+            createTodo(value, userId)
+        }
         setValue('')
     }
 
