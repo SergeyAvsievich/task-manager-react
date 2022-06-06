@@ -23,7 +23,7 @@ export const AddForm: React.FC = () => {
             <input
                 placeholder="Напишите что ну нужно сделать..."
                 className="todo-input"
-                type="text" 
+                type="add" 
                 onChange={event => setValue(event.target.value)} 
                 value={value}
             />

@@ -6,7 +6,7 @@ import Auth from './containers/Auth/Auth'
 import Toggle from './containers/Toggle/Toggle'
 import {useTypedSelector} from './hooks/useTypedSelector'
 import {Error} from './containers/Error/Error'
-import Navibar from './components/NaviBar/Navibar'
+import Navbar from './components/Navbar/Navbar'
 // import ChangeTheme from './components/ChangeTheme/ChangeTheme'
 // import { useEffect } from 'react';
 // import axios from 'axios'
@@ -18,8 +18,10 @@ function App() {
 
   let routes = (
     <>
+      {/* <Navbar/> */}
       <Routes>
-        <Route path="/" element={<Auth/>}/>
+        {/* <Route path="/" element={<Auth/>}/> */}
+        <Route path="/" element={<Todo/>}/>
         <Route path="/*" element={<Error/>}/>
       </Routes>
     </>
@@ -30,11 +32,10 @@ function App() {
     const link = `/todos/${user}`
     routes = (
       <>
-        <Navibar />
         <Routes>
-          <Route path="/" element={<Navigate to={link} replace/>}/>
+          {/* <Route path="/" element={<Navigate to={link} replace/>}/>
           <Route path="/todos/:user" element={<Todo/>}/>
-          <Route path="/toggle" element={<Toggle/>}/>
+          <Route path="/toggle" element={<Toggle/>}/> */}
         </Routes>
       </>
     ) 

@@ -1,0 +1,38 @@
+.TodoDescription {
+    width: 25%;
+    padding: 0 10px 0;
+    border-radius: 3px;
+    background: initial;
+    color: #01A4B5;
+    display: flex;
+    flex-direction: column;
+}
+
+.TodoDescription > div {
+    background: rgb(27,30,43);
+    padding: 5px 15px;
+    border-radius: 5px;
+}
+
+.TodoDescription > div:first-child {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.TodoDescription > div:nth-child(2) {
+    height: 100%;
+}
+
+.TodoDescription i {
+    font-size: 26px;
+    color: rgba(255, 215, 0, 1);
+    cursor: pointer;
+}
+
+.TodoDescription i:hover {
+    color: rgb(255, 235, 0);
+}
+
+

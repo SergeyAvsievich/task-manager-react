@@ -44,14 +44,16 @@ export const TodoItem: React.FC<ITodos> = (props) => {
 
     return (
         <li className={cls.join(' ')}>
-            <span>
-                <input
-                    type="checkbox"
+            <div className="checkbox">
+                <input 
+                    className="custom-checkbox" 
+                    type="checkbox" 
+                    id="color-1"
                     checked={props.completed}
                     onChange={() => changeHandler(props.id)} 
-                />        
-                {props.text}
-            </span>
+                />
+                <label htmlFor="color-1">{props.text}</label>
+            </div>       
             <button 
                 className={classes.close}
                 onClick={() => deleteHandler(props.id)}
