@@ -1,11 +1,10 @@
 import React, { useState } from 'react'
 import './AddForm.css'
 import { useActions } from '../../hooks/useAction'
-import { useTypedSelector } from '../../hooks/useTypedSelector'
 
 export const AddForm: React.FC = () => {
     const {createTodo} = useActions()
-    const userId = useTypedSelector(state => state.auth.token)
+    const userId = localStorage.getItem('userId')
 
     const [value, setValue] = useState('')
 

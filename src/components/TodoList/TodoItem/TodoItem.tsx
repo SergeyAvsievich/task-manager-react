@@ -1,36 +1,23 @@
 import React from 'react'
-import { useDispatch } from 'react-redux'
-import { deleteTodo, updateTodo } from '../../../redux/actions/todos'
+import { useActions } from '../../../hooks/useAction'
 import classes from './TodoItem.module.css'
+// import { NavLink } from 'react-router-dom'
 
-/*
-    1. Сделать Backdrop menu +
-    2. Подключить роутер +
-    3. Добавлять задачи в firebase +
-    4. Удалять из firebase +
-    5. Loader добавить +
-    6. Стилизовать компоненты inputs, buttons
-    7. Авторизация
-    8. Пользователь может менять тему
-    *******************************************
-    9. Система оповещений для пользователя
-    10. Деплой
-    11. Реализовать Alert
-
-*/
-
-interface ITodos {
+interface TodoItemProps {
     id: number,
     text: string,
-    completed: boolean
+    completed: boolean,
+    // index: number
 }
 
-export const TodoItem: React.FC<ITodos> = (props) => {
+export const TodoItem: React.FC<TodoItemProps> = (props) => {
 
-    const dispatch = useDispatch()
+    // const user = localStorage.getItem('userId')
+
+    const {deleteTodo, updateTodo} = useActions()
 
     const deleteHandler = (id: number) => {
-        dispatch(deleteTodo(id))
+        deleteTodo(id)
     }
 
     const cls = [
@@ -39,27 +26,31 @@ export const TodoItem: React.FC<ITodos> = (props) => {
     ]
 
     const changeHandler = (id: number) => {
-        dispatch(updateTodo(id))
+        console.log('id: ', id)
+        updateTodo(id)
     }
 
     return (
         <li className={cls.join(' ')}>
-            <div className="checkbox">
-                <input 
-                    className="custom-checkbox" 
-                    type="checkbox" 
-                    id="color-1"
-                    checked={props.completed}
-                    onChange={() => changeHandler(props.id)} 
-                />
-                <label htmlFor="color-1">{props.text}</label>
-            </div>       
-            <button 
-                className={classes.close}
-                onClick={() => deleteHandler(props.id)}
-            >
-                &#10006;
-            </button>
+            {/* <NavLink to={`/todos/${user}/${props.index}`}> */}
+            {/* <NavLink to={`/toggle`}> */}
+                <div className="checkbox">
+                    <input 
+                        className="custom-checkbox" 
+                        type="checkbox" 
+                        id={props.id.toString()}
+                        checked={props.completed}
+                        onChange={() => changeHandler(props.id)} 
+                    />
+                    <label htmlFor={props.id.toString()}>{props.text}</label>
+                </div>       
+                <button 
+                    className={classes.close}
+                    onClick={() => deleteHandler(props.id)}
+                >
+                    &#10006;
+                </button>
+            {/* </NavLink> */}
         </li>
     )
 }

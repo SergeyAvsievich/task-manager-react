@@ -44,6 +44,7 @@ const deleteTodo = async (todoId: number) => {
 }
 
 const updateTodo = async (todoId: number) => {
+    console.log('update: ', todoId)
     try{
         const response = await axios.get<ITodo>('/todos.json')
 

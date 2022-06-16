@@ -1,5 +1,6 @@
 import React from 'react'
 import bg from '../../assets/img/StockSnap_J18ZCO3IPA.jpg'
+import { Clock } from '../Clock/Clock'
 import './Navbar.css'
 
 const Navbar: React.FC = () => {
@@ -9,7 +10,7 @@ const Navbar: React.FC = () => {
             <div>
                 <figure>
                     <img src={bg} alt="bg" />
-                    <figcaption><h2>Friday, 01 June</h2></figcaption>
+                    <Clock/>
                 </figure>
                 <div className="mask"></div>
             </div>

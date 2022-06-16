@@ -1,11 +1,6 @@
 .nav {
-    /* display: flex; */
-    /* justify-content: space-between; */
-    /* align-items: center; */
     height: 200px;
     margin-left: 10px;
-    /* background: #01A4B5; */
-    /* background: linear-gradient(315deg, #033A70 0%, #01A4B5 74%); */
     color: white;
     text-align: center;
     position: relative;
@@ -18,12 +13,6 @@
     left: 0;
     top: 0;
     z-index: 1;
-}
-
-figcaption {
-    position: absolute;
-    z-index: 10;
-    right: 15%;
 }
 
 .nav .mask {

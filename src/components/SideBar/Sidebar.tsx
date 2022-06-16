@@ -1,49 +1,34 @@
 import React from 'react'
-import { NavLink, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { useActions } from '../../hooks/useAction'
-// import PopUpWindowProfile from '../PopUpWindowProfile/PopUpWindowProfile'
-import './Sidebar.css'
+import classes from './Sidebar.module.css'
 
 const Sidebar: React.FC = () => {
 
-    const {logout} = useActions()
+    const { logout } = useActions()
     const navigate = useNavigate()
+    const userName = localStorage.getItem('userName')
 
     const exitHandler = () => {
+        setTimeout(() => navigate("/"), 0)
         logout()
-        navigate("/");
     }
 
     return (
-        <div className="menu">
-            <div className="logo">
-                <h2>Todo App</h2>
+        <div className={classes.Sidebar}>
+            <div className={classes.UserName}>
+                <h3 onClick={exitHandler}>{userName} </h3>
+                <strong><i className="fas fa-door-open"></i>Выход</strong>
             </div>
-            <ul className="menu-list">
-                <li className="menu-item">
+            <ul className={classes.MenuList}>
+                <li className={classes.MenuItem}>
                     <i className="far fa-clipboard"></i>
                     Toggle
                 </li>
-                <li className="menu-item"><i className="fas fa-paper-plane"></i>Недавние задачи</li>
-                <li className="menu-item"><i className="fas fa-star"></i> Избранное</li>
-                <li className="menu-item"><i className="fas fa-bell"></i> Добавить уведомление</li>
+                <li className={classes.MenuItem}><i className="fas fa-paper-plane"></i>Недавние задачи</li>
+                <li className={classes.MenuItem}><i className="fas fa-star"></i> Избранное</li>
+                <li className={classes.MenuItem}><i className="fas fa-bell"></i> Добавить уведомление</li>
             </ul>
-            <div className="profile">
-                {/* <i className="fas fa-search"></i>
-                <input className="search" type="text" placeholder="Поиск"/>
-                <div className="user">
-                    <strong>
-                        <i className="fas fa-user">
-                        </i>Сергей Владимирович
-                        <i className="fas fa-caret-down"></i>
-                    </strong>
-                </div> */}
-                    {/* <PopUpWindowProfile/> */}
-                {/* <button
-                    className="btn-exit"
-                    onClick={exitHandler}
-                >Выйти</button> */}
-            </div>
         </div>
     )
 }

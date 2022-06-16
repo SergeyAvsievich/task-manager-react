@@ -12,19 +12,6 @@
     display: flex;
 }
 
-.Input i {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 50px;
-    width: 50px;
-    padding: 0;
-    margin: 0;
-    font-size: 25px;
-    background: #182551;
-    color: #fff;
-}
-
 .Input input {
     display: block;
     box-sizing: border-box;
