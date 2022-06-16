@@ -1,0 +1,25 @@
+.Todo {
+  display: flex;
+  height: 100%;
+  background: rgba( 9, 13, 30, 0.905);
+  width: 100vw;
+}
+
+.TodoCentralBlock {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.TodoContent {
+  display: flex;
+  margin-left: 8px;
+  margin-top: 8px;
+  border-radius: 8px;
+  background: #f7f7f7;
+  padding: 15px;
+  background: rgb(27,30,43);
+  justify-content: center;
+  color: #fff;
+  height: 100%;
+}

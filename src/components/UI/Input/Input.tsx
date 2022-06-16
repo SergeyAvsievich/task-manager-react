@@ -1,4 +1,4 @@
-import React, { ChangeEventHandler} from 'react'
+import React, { ChangeEventHandler, ReactNode} from 'react'
 import classes from './Input.module.css'
 
 interface PropsInput {
@@ -6,6 +6,7 @@ interface PropsInput {
   label: string,
   value: string,
   errorMessage: string,
+  children?: ReactNode,
   onChange: ChangeEventHandler<HTMLInputElement> 
 }
 
@@ -18,9 +19,7 @@ const Input: React.FC<PropsInput> = (props) => {
     <div className={cls.join(' ')}>
       <label htmlFor={htmlFor}>{props.label}</label>
       <div>
-        <div>
-          <i className="fas fa-user"></i>
-        </div>
+        {props.children}
         <input
           id={htmlFor} 
           type={props.type}

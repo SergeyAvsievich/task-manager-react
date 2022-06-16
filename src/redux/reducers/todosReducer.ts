@@ -2,7 +2,7 @@ import { TodosAction, TodosActionTypes, TodosState } from "../types/todos"
 
 const initialState: TodosState = {
     todos: [],
-    loading: false
+    loading: true
 }
 
 export const todosReducer = (state = initialState, action: TodosAction): TodosState => {
@@ -27,7 +27,9 @@ export const todosReducer = (state = initialState, action: TodosAction): TodosSt
             return{
                 ...state,
                 todos: [...state.todos.map(todo => {
-                    if(todo.id === action.todoId) {todo.completed = !todo.completed}
+                    if(todo.id === action.todoId) {
+                        todo.completed = !todo.completed
+                    }
                     return todo
                 })]
             }

@@ -1,25 +1,18 @@
 import React, { useState } from 'react'
-import './Auth.css'
 import { useActions } from '../../hooks/useAction'
-import { useNavigate } from 'react-router-dom'
 import Button from '../../components/UI/Button/Button'
 import Input from '../../components/UI/Input/Input'
-import { useTypedSelector } from '../../hooks/useTypedSelector'
+import classes from './Auth.module.css'
 
 const Auth: React.FC = () => {
 
     const [email, setEmail] = useState<string>('')
     const [password, setPassword] = useState<string>('')
     const { auth } = useActions()
-    const userId = useTypedSelector(state => state.auth.token)
-    // const navigate = useNavigate()
 
     const loginHandler = async () => {
         auth(email, password, true)
-        setTimeout(() => {
-            console.log('userId: ', userId)
-        }, 500)
-        // navigate(`/todos`)
+        localStorage.setItem('userName', email)
     }
 
     const registerHandler = async () => {
@@ -27,20 +20,24 @@ const Auth: React.FC = () => {
     }
 
     return (
-        <div className="auth">
+        <div className={classes.Auth}>
             <div>
-                <div className="authForm">
-                    <div className="authForm__header">
+                <div className={classes.AuthForm}>
+                    <div className={classes.FormHeader}>
                         <h1>Авторизация</h1>
                     </div>
-                    <div className="authForm__body">
+                    <div className={classes.FormBody}>
                         <Input
                             type="email"
                             label="Введите email"
                             errorMessage=""
                             value={email}
                             onChange={event => setEmail(event.target.value)}
-                        />
+                        >
+                            <div>
+                                <i className="fas fa-at"></i>
+                            </div>
+                        </Input>
 
                         <Input
                             type="password"
@@ -48,10 +45,14 @@ const Auth: React.FC = () => {
                             errorMessage=""
                             value={password}
                             onChange={event => setPassword(event.target.value)}
-                        />
+                        >   
+                            <div>
+                                <i className="fas fa-user"></i>
+                            </div>
+                        </Input>
                     </div>
 
-                    <div className="authForm__footer">
+                    <div className={classes.FormFooter}>
                         <Button
                             type="success"
                             onClick={loginHandler}

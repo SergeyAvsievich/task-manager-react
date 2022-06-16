@@ -1,26 +1,31 @@
-.todo-add {
-  display: flex;
-  justify-content: center;
+.todo-form {
+  padding-top: 50px;
 }
 
 .todo-input {
-  width: 439px;
-  height: 25px;
+  width: 635px;
   border: none;
-  border-bottom: 1px solid #fff;
+  border-bottom: 1px solid #01A4B5;
   border-radius: 0;
   outline: none;
-  height: 3rem;
+  height: 3.3rem;
   background: transparent;
-  color: #bbb;
+  color: #01A4B5;
   padding-left: 30px;
-  font-size: 20px;
+  font-size: 22px;
   margin-left: 6px;
+}
+
+input[type="add"]::-webkit-input-placeholder {
+  color: rgba(1, 164, 181, 0.6);
+} 
+input[type="add"]::-moz-placeholder {
+  color: rgba(1, 164, 181, 0.6);
 }
 
 .fa-comment-dots {
   margin-right: -25px;
-  color: #ccc;
+  color: #01A4B5;
   font-size: 20px;
 }
 
@@ -28,7 +33,7 @@
   display: inline-block;
   padding: 10px 10px;
   border-radius: 0px 4px 4px 0px;
-  border: 1px solid #ccc;
+  border: 1px solid #01A4B5;
   color: #fff;
   text-transform: uppercase;
   font-weight: bold;
@@ -43,7 +48,7 @@
   );
   /* background: rgba(253, 160, 133, 1); */
   cursor: pointer;
-  height: 48px;
+  height: 53px;
 }
 
 .add-btn:focus {

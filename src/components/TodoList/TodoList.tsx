@@ -6,6 +6,7 @@ import classes from './TodoList.module.css'
 export const TodoList: React.FC = () => {
 
     const todos = useTypedSelector(state => state.todos.todos)
+
     return (
         <ul className={classes.TodoList}>
             {todos.map((todo, index) => {
